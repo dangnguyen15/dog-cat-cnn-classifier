@@ -3,7 +3,7 @@ from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
 import tensorflow as tf
 import numpy as np
-from ortools.linear_solver import pywraplp  # Thêm OR-Tools
+from ortools.linear_solver import pywraplp  
 
 # Đường dẫn model
 MODEL_PATH = "dog_cat_model.h5"
@@ -82,17 +82,14 @@ def open_image(label_image, label_result):
 
 # Giao diện người dùng (GUI)
 def main():
-    # Tạo cửa sổ chính
     window = tk.Tk()
     window.title("Dog or Cat Classifier")
     window.geometry("450x500")
-    window.configure(bg='#f4f4f9')  # Màu nền sáng
+    window.configure(bg='#f4f4f9') 
 
-    # Tiêu đề
     title_label = tk.Label(window, text="Dog or Cat", font=("Segoe UI", 30, 'bold'), bg='#f4f4f9', fg='#3b3b3b')
     title_label.pack(pady=20)
 
-    # Khung hiển thị hình ảnh và kết quả
     frame = tk.Frame(window, bg='#f4f4f9')
     frame.pack(pady=10)
 
@@ -102,14 +99,13 @@ def main():
     label_result = tk.Label(frame, text="Result: ", font=("Segoe UI", 14), bg='#f4f4f9', fg='#3b3b3b')
     label_result.grid(row=1, column=0, pady=10)
 
-    # Nút tải ảnh
     upload_button = tk.Button(window, text="Upload Image", command=lambda: open_image(label_image, label_result),
                                font=("Segoe UI", 14, 'bold'), bg="grey", fg="white", relief="flat", width=20, height=2)
     upload_button.pack(pady=30)
 
-    # Chạy vòng lặp giao diện
     window.mainloop()
 
 
 if __name__ == "__main__":
     main()
+
